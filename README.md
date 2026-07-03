@@ -4,13 +4,24 @@ Full-stack event operations platform for venue bookings, staff assignments, gues
 
 VenueOps is a portfolio-ready business application inspired by real hospitality and event operations work. It is designed to look and behave like internal software a venue team could use to coordinate events, staff shifts, client requests, and operational notes.
 
+## Live Demo
+
+- Frontend: https://venueops-web.onrender.com
+- API health check: https://venueops-api.onrender.com/health
+
 ## Screenshots
 
-![VenueOps dashboard](docs/screenshots/dashboard.png)
+![VenueOps dashboard overview](docs/linkedin-launch/venueops-01-dashboard-overview.png)
 
-![Booking management](docs/screenshots/bookings.png)
+![VenueOps booking flow](docs/linkedin-launch/venueops-02-booking-flow.png)
 
-![Mobile dashboard](docs/screenshots/mobile-dashboard.png)
+![VenueOps staff assignments](docs/linkedin-launch/venueops-03-staff-assignment.png)
+
+![VenueOps shift notes](docs/linkedin-launch/venueops-04-shift-notes.png)
+
+![VenueOps architecture diagram](docs/linkedin-launch/venueops-05-architecture-diagram.png)
+
+Demo video: [docs/linkedin-launch/venueops-demo-60s.mp4](docs/linkedin-launch/venueops-demo-60s.mp4)
 
 ## Why This Project Exists
 
@@ -257,12 +268,14 @@ Live demo status:
 
 AI-assisted tooling supported planning, implementation, debugging, visual QA, and documentation. The app does not require paid AI APIs to run, and the code was built and tested locally.
 
-## Resume / LinkedIn
+## Portfolio Launch Assets
 
 See:
 
-- [docs/linkedin-project-entry.md](docs/linkedin-project-entry.md)
-- [docs/resume-bullets.md](docs/resume-bullets.md)
+- [docs/linkedin-launch/linkedin-launch-post.md](docs/linkedin-launch/linkedin-launch-post.md)
+- [docs/linkedin-launch/linkedin-project-entry.md](docs/linkedin-launch/linkedin-project-entry.md)
+- [docs/linkedin-launch/resume-bullets.md](docs/linkedin-launch/resume-bullets.md)
+- [docs/linkedin-launch/venueops-social-preview.png](docs/linkedin-launch/venueops-social-preview.png)
 
 Example resume bullet:
 
