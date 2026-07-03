@@ -1,0 +1,39 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# .NET
+.dotnet/
+bin/
+obj/
+TestResults/
+coverage/
+*.user
+*.suo
+
+# Node / frontend
+node_modules/
+dist/
+coverage/
+.vite/
+
+# IDE / OS
+.vs/
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local generated artifacts
+docs/screenshots/*.tmp.png
+docs/screenshots/playwright-report/
+playwright-report/
+test-results/
