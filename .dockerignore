@@ -1,0 +1,12 @@
+.git
+.github
+.dotnet
+**/.DS_Store
+**/bin
+**/obj
+**/node_modules
+**/dist
+**/.vercel
+docs/screenshots
+frontend/.env*
+backend/src/VenueOps.Api/appsettings.Development.json

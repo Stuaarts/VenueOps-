@@ -209,14 +209,20 @@ The GitHub Actions workflow in [.github/workflows/ci.yml](.github/workflows/ci.y
 
 No paid service is required to run VenueOps. The strongest guaranteed demo path is local Docker Compose.
 
-Free-tier deployment notes are in [docs/deployment.md](docs/deployment.md). Current official docs indicate [Render offers free web services and Postgres](https://render.com/docs/free) for hobby/testing workloads, and [Vercel offers a free Hobby plan](https://vercel.com/docs/plans/hobby) for personal frontend projects. Review provider limits before deploying.
+Free-tier deployment notes are in [docs/deployment.md](docs/deployment.md). Current official docs indicate [Render offers free web services](https://render.com/docs/free), [Vercel offers a free Hobby plan](https://vercel.com/docs/plans/hobby), and [Neon offers a free Postgres plan](https://neon.com/docs/introduction/plans) for prototypes and side projects. Review provider limits before deploying.
 
 Suggested free deployment:
 
-- Backend and PostgreSQL on Render free tier, if available in your account
+- Backend API on Render free web service
+- PostgreSQL on Neon free tier
 - Frontend on Vercel Hobby
 - `VITE_API_BASE_URL` set to the backend `/api` URL
-- API CORS origin set to the frontend URL
+- API CORS origin tightened to the frontend URL after the Vercel URL is known
+
+Live demo status:
+
+- Frontend: pending
+- API health check: pending
 
 ## Security Notes
 

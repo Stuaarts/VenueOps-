@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: venueops-api
+    runtime: docker
+    plan: free
+    branch: main
+    autoDeploy: true
+    dockerContext: .
+    dockerfilePath: ./backend/Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: DATABASE_URL
+        sync: false
+      - key: Jwt__Issuer
+        value: VenueOps
+      - key: Jwt__Audience
+        value: VenueOpsClient
+      - key: Jwt__SigningKey
+        generateValue: true
+      - key: SeedDemoData
+        value: "true"
+      - key: Cors__AllowedOrigins__0
+        value: "*"
