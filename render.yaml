@@ -22,4 +22,4 @@ services:
       - key: SeedDemoData
         value: "true"
       - key: Cors__AllowedOrigins__0
-        value: "*"
+        value: https://venueops-web.onrender.com

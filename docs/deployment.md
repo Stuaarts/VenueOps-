@@ -12,7 +12,7 @@ Always review provider terms and limits before deploying. Do not add a paid data
 
 ## Suggested No-Cost Deployment For A Public Demo
 
-Use Vercel for the static React frontend, Render for the ASP.NET Core API, and Neon for the free Postgres database. This avoids Render's free Postgres 30-day expiration while keeping the demo on free services.
+Use Vercel or Render for the static React frontend, Render for the ASP.NET Core API, and Neon or Render Free Postgres for the demo database. Neon avoids Render's free Postgres 30-day expiration; Render Free Postgres is useful when you want the whole demo in one Render account.
 
 ### 1. Create Neon Postgres
 
@@ -41,11 +41,16 @@ The repository includes `render.yaml` for the backend web service.
    https://YOUR_RENDER_SERVICE.onrender.com/health
    ```
 
-### 3. Deploy The Frontend To Vercel
+### 3. Deploy The Frontend
 
-The repository includes `vercel.json` so Vercel can build the React app from the monorepo root.
+The current demo uses a Render static site:
 
-Set this Vercel environment variable before the production deploy:
+- Root directory: repository root
+- Build command: `cd frontend && npm ci && npm run build`
+- Publish path: `frontend/dist`
+- Environment variable: `VITE_API_BASE_URL=https://YOUR_RENDER_SERVICE.onrender.com/api`
+
+The repository also includes `vercel.json` if you prefer Vercel later. For Vercel, set this environment variable before the production deploy:
 
 ```text
 VITE_API_BASE_URL=https://YOUR_RENDER_SERVICE.onrender.com/api
@@ -57,22 +62,23 @@ Then deploy from the GitHub repo or with:
 vercel --prod
 ```
 
-### 4. Tighten CORS After The Vercel URL Is Known
+### 4. Tighten CORS After The Frontend URL Is Known
 
-`render.yaml` uses `Cors__AllowedOrigins__0=*` to avoid a chicken-and-egg setup problem before the Vercel URL exists. After the frontend URL is stable, replace it in Render with the exact Vercel production URL:
+Set the Render API service's CORS origin to the exact frontend production URL:
 
 ```text
-Cors__AllowedOrigins__0=https://YOUR_VERCEL_APP.vercel.app
+Cors__AllowedOrigins__0=https://YOUR_FRONTEND_APP.onrender.com
 ```
 
 Redeploy the Render service after changing the variable.
 
 ## Current Hosting Status
 
-Live URLs should be added here after the external account deploys complete:
+The current demo is deployed on Render:
 
-- Frontend: pending
-- API health check: pending
+- Frontend: https://venueops-web.onrender.com
+- API health check: https://venueops-api.onrender.com/health
+- Database: Render Free Postgres
 
 ## Safe Fallback
 
