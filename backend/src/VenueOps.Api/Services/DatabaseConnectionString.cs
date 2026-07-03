@@ -17,16 +17,16 @@ public static class DatabaseConnectionString
 
     public static string Resolve(IConfiguration configuration)
     {
-        var configuredConnectionString = configuration.GetConnectionString("DefaultConnection");
-        if (!string.IsNullOrWhiteSpace(configuredConnectionString))
-        {
-            return NormalizePostgresUrl(configuredConnectionString);
-        }
-
         var databaseUrl = configuration["DATABASE_URL"];
         if (!string.IsNullOrWhiteSpace(databaseUrl))
         {
             return NormalizePostgresUrl(databaseUrl);
+        }
+
+        var configuredConnectionString = configuration.GetConnectionString("DefaultConnection");
+        if (!string.IsNullOrWhiteSpace(configuredConnectionString))
+        {
+            return NormalizePostgresUrl(configuredConnectionString);
         }
 
         throw new InvalidOperationException("A PostgreSQL connection string is not configured.");

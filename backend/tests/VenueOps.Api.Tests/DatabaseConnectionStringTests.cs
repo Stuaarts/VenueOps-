@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Configuration;
 using VenueOps.Api.Services;
 
 namespace VenueOps.Api.Tests;
@@ -27,5 +28,23 @@ public sealed class DatabaseConnectionStringTests
         var normalized = DatabaseConnectionString.NormalizePostgresUrl(connectionString);
 
         Assert.Equal(connectionString, normalized);
+    }
+
+    [Fact]
+    public void Resolve_prefers_database_url_over_local_appsettings_connection()
+    {
+        var configuration = new ConfigurationBuilder()
+            .AddInMemoryCollection(new Dictionary<string, string?>
+            {
+                ["ConnectionStrings:DefaultConnection"] = "Host=localhost;Database=venueops;Username=venueops;Password=local",
+                ["DATABASE_URL"] = "postgresql://venueops:hosted@db.example.com/venueops?sslmode=require"
+            })
+            .Build();
+
+        var connectionString = DatabaseConnectionString.Resolve(configuration);
+
+        Assert.Contains("Host=db.example.com", connectionString);
+        Assert.Contains("Password=hosted", connectionString);
+        Assert.DoesNotContain("Host=localhost", connectionString);
     }
 }
